@@ -34,7 +34,7 @@ class GramsController < ApplicationController
   end
 
   def index
-    @grams = Gram.all.order(created_at: :desc)
+    @grams = Gram.all.order(created_at: :desc).page params[:page]
   end
 
   def show
