@@ -1,6 +1,10 @@
 class GramsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def self.listing(page)
+    order(created_at: :desc).page(params[:page]).per(20)
+  end
+
   def update
   	@gram = Gram.find_by_id(params[:id])
   	return render_not_found if @gram.blank?
@@ -30,7 +34,7 @@ class GramsController < ApplicationController
   end
 
   def index
-  	@grams = Gram.all
+    @grams = Gram.all.order(created_at: :desc)
   end
 
   def show
