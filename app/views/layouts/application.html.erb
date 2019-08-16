@@ -15,7 +15,7 @@
       <%= link_to 'Grammable', root_path, class: 'brand float-left' %>
     </div>
     
-      <div class="add float-right">
+      <div class="top-nav .add float-right">
         <% if current_user %>
           Welcome <%= current_user.email %>.
          <%= link_to "New Post", new_gram_path %>
